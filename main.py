@@ -41,6 +41,10 @@ def main():
 
         for object in updatable:
             object.update(dt)
+        for asteroid in asteroids:
+            if (asteroid.isCollided(player)):
+                print("Game over!")
+                return
         for object in drawable:
             object.draw(pygame.display.get_surface())
 
