@@ -24,6 +24,7 @@ def main():
 
         pygame.display.get_surface().fill((0,0,0))
 
+        player.update(dt)
         player.draw(pygame.display.get_surface())
 
         pygame.display.flip()
