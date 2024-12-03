@@ -42,12 +42,17 @@ def main():
 
         pygame.display.get_surface().fill((0,0,0))
 
-        for object in updatable:
-            object.update(dt)
         for asteroid in asteroids:
             if (asteroid.isCollided(player)):
                 print("Game over!")
                 return
+        for asteroid in asteroids:
+            for shot in shots:
+                if asteroid.isCollided(shot):
+                    asteroid.kill()
+                    shot.kill()
+        for object in updatable:
+            object.update(dt)
         for object in drawable:
             object.draw(pygame.display.get_surface())
 
